@@ -1,0 +1,20 @@
+
+
+
+.header{
+    color: white;
+    height: 120px;
+    margin: 10px;
+    text-align: center;
+    line-height: 120px;
+    border-radius: 10px;
+}
+.nav{
+    margin: 10px;
+    border-radius: 10px;
+}
+.nav > a{
+    color: white;
+    height: 50px;
+    font-size: 20px;
+}

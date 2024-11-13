@@ -1,0 +1,40 @@
+.container .row .col{
+    margin: 20px;
+}
+.container .row .col .contact{
+    width: auto;
+    height:500px;
+    border-radius: 7px ;
+}
+.container .row .col .contact form {
+    line-height: 30px;
+}
+
+.container .row .col .contact form input{
+    margin: 10px;
+    background-color: rgb(177, 174, 174);
+    color: rgb(11, 11, 11);
+    width: 500px;
+    border: none;
+    border-radius: 5px;
+}
+.name{
+    text-align: left;
+    width: 300px !important ;
+    
+}
+
+.content{
+    height: 100px;
+}
+
+.col img{
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+.container .row .col .contact .infor{
+    text-align: left;
+    padding: 20px;
+    border-bottom: 2px solid gray;
+}
