@@ -39,7 +39,7 @@
                     <li>
                         <nav class="navbars ">
                             <form class="container-fluid justify-content-start">
-                                <button class="btn btn-outline-dark me-4" type="button"><a href="../login.php">Đăng xuất</a></button>
+                            <a class="btn btn-outline-dark me-4" href="logout.php">Đăng xuất</a>
                                 
                                 
                             </form>

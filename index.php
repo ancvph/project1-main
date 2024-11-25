@@ -2,9 +2,11 @@
 session_start();
 
 // Kiểm tra nếu chưa đăng nhập thì chuyển hướng đến login.php
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])|| $_SESSION['role'] != 0) {
     header("Location: login.php");
     exit();
+}else{
+    header('localhost: login.php');
 };
     include "./model/pdo.php";
     include "./model/model_products.php";

@@ -19,7 +19,11 @@ echo "Chào mừng admin, " . $_SESSION['username'];
     <title>Trang Admin</title>
 </head>
 <body>
-    <h1>Chào mừng Admin: <?php echo $_SESSION['user']['username']; ?></h1>
+<h1>Chào mừng Admin: 
+    <?php 
+    echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] : "Người dùng không xác định"; 
+    ?>
+</h1>
     <a href="../logout.php">Đăng xuất</a>
 </body>
 </html>
