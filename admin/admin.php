@@ -8,22 +8,25 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != '1') {
 }
 
 // Nội dung của trang admin
-echo "Chào mừng admin, " . $_SESSION['username'];
+    $hi_admin = "Xin chào boss: " . $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Admin</title>
 </head>
+
 <body>
-<h1>Chào mừng Admin: 
-    <?php 
-    echo isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] : "Người dùng không xác định"; 
-    ?>
-</h1>
-    <a href="../logout.php">Đăng xuất</a>
+    <h1> <?php 
+        echo $hi_admin;
+    ?></h1>
+    <a href="../logout.php" style="text-decoration: none">
+        <h3>Đăng xuất</h3>
+    </a>
 </body>
+
 </html>

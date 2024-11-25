@@ -1,58 +1,58 @@
 body {
-    background-color: #f8f9fa;
+  background-color: #f8f9fa;
 }
 .login-container {
-    display: flex;
-    height: 100vh;
+  display: flex;
+  height: 100vh;
 }
 .login-left {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    text-align: center;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-align: center;
 }
 .login-right {
-    background-color: #fff;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+  background-color: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 .login-right h1 {
-    font-family: 'Arial', sans-serif;
-    color: #0033cc;
+  font-family: "Arial", sans-serif;
+  color: #0033cc;
 }
 .form-control {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 .btn-login {
-    background-color: #000;
-    color: #fff;
-    width: 100%;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
 }
 .btn-login:hover {
-    background-color: #333;
+  background-color: #333;
 }
 .or-divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
 }
 .or-divider::before,
 .or-divider::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #ccc;
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
 }
 .or-divider:not(:empty)::before {
-    margin-right: .5em;
+  margin-right: 0.5em;
 }
 .or-divider:not(:empty)::after {
-    margin-left: .5em;
+  margin-left: 0.5em;
 }
