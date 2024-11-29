@@ -23,5 +23,6 @@
         <a class="flex-sm-fill text-sm-center nav-link" href="#">Khách hàng</a>
         <a class="flex-sm-fill text-sm-center nav-link" href="#">Bình luận</a>
         <a class="flex-sm-fill text-sm-center nav-link" href="#">Thống kê</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="./index.php?act=orders">Đơn hàng</a>
 
     </nav>
