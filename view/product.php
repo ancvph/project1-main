@@ -74,7 +74,7 @@
                                 <h5 class="card-title text-decoration-none" >'.$product_name.'</h5>
                             </a>
 
-                            <h6 class="card-title text-danger">$ '.$price.'</h6>
+                            <h6 class="card-title text-danger"> '.number_format($price,0,',','.').' VNĐ</h6>
                             
 
                             <form action="index.php?act=cart" method="post">

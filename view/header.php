@@ -35,18 +35,22 @@
                     </li>
                     <li>
                         <h4><a class="navbar" href="index.php?act=about">ABOUT</a></h4>
+                        
+                    </li>
+                    <li>
+                        
                     </li>
                     <li>
                         <nav class="navbars ">
                             <form class="container-fluid justify-content-start">
-                                <button class="btn btn-outline-dark me-4" type="button"><a style="text-decoration:none"
-                                        href="logout.php">Đăng
-                                        xuất</a></button>
+                                <button class="btn" type="button"><a style="text-decoration:none"
+                                        href="logout.php"><b>Đăng xuất</b></a></button>
 
-
+                                <a class="navbar" href="index.php?act=cart"><img src="view/imgs/shopping-cart.png" alt="" style="width:50px"></a>
                             </form>
                         </nav>
                     </li>
+                    
                 </ul>
             </div>
         </div>
