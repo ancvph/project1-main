@@ -22,4 +22,14 @@ function get_order_items($order_id) {
     return pdo_query($sql, $order_id); // Hàm này phải trả về một mảng các sản phẩm trong đơn hàng
 }
 
+    function list_all_orders(){
+        $sql ="SELECT * from orders";
+        
+
+        $list_orders = pdo_query($sql);
+        return $list_orders;
+    }
+
+
+
 ?>
