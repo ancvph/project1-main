@@ -147,7 +147,7 @@
                 }
                 
                 
-                $list_products = list_all_products();
+                $list_products = list_all_products($key,$category_id);
                 
                 include "./products/list_products.php";
                 break;
@@ -168,37 +168,47 @@
 
             //cập nhật sản phẩm
             case 'update_products':
-           
-                if(isset($_POST["update_submit"]) && $_POST["update_submit"]){
-                    $product_name = $_POST["product_name"];
-                    $description = $_POST["description"];
-                    $price = $_POST["price"];
-                    $stock_quantity = $_POST["stock_quantity"];
+                if (isset($_POST["update_submit"]) && $_POST["update_submit"]) {
+                    // Kiểm tra dữ liệu đầu vào từ form
+                    $product_id = $_POST["product_id"] ?? null; // Đảm bảo product_id được truyền
+                    $product_name = htmlspecialchars(trim($_POST["product_name"]));
+                    $description = htmlspecialchars(trim($_POST["description"]));
+                    $price = floatval($_POST["price"]);
+                    $stock_quantity = intval($_POST["stock_quantity"]);
                     $created_at = $_POST["created_at"];
                     $updated_at = $_POST["updated_at"];
-                    $image_url = $_FILES["image_url"]["name"];
-                    $category_id = $_POST["category_id"];
-                    $target_dir = "../upload/";
-                    $target_file = $target_dir . basename($_FILES["image_url"]["name"]);
-                    if (move_uploaded_file($_FILES["image_url"]["tmp_name"], $target_file)) {
-                        // echo "The file ". htmlspecialchars( basename( $_FILES["image_url"]["name"])). " has been uploaded.";
-                    } else {
-                        // echo "Sorry, there was an error uploading your file.";
-                    }
-
-                    if($price >0 && $stock_quantity >0){
-                        update_products($product_id,$category_id,$product_name,$description,$price,$stock_quantity,$created_at,$updated_at,$image_url);
-                    }else{
-                        echo "Chọn danh mục khác";
-                    }
-
-                    
+                    $category_id = intval($_POST["category_id"]);
             
+                    // Xử lý ảnh
+                    $image_url = $_FILES["image_url"]["name"];
+                    $target_dir = "../upload/";
+                    $target_file = $target_dir . basename($image_url);
+            
+                    if (!empty($image_url)) {
+                        if (move_uploaded_file($_FILES["image_url"]["tmp_name"], $target_file)) {
+                            // File đã được tải lên thành công
+                        } else {
+                            echo "Có lỗi xảy ra khi tải lên file.";
+                        }
+                    }
+            
+                    // Kiểm tra điều kiện và cập nhật sản phẩm
+                    if ($price > 0 && $stock_quantity > 0 && !empty($product_id)) {
+                        update_products($product_id, $category_id, $product_name, $description, $price, $stock_quantity, $created_at, $updated_at, $image_url);
+                    } else {
+                        echo "Vui lòng kiểm tra lại dữ liệu nhập vào.";
+                    }
                 }
-                
-                $list_products = list_all_products();
+            
+                // Kiểm tra tham số tìm kiếm (key)
+                $key = $_POST['key'] ?? ''; // Lấy giá trị key từ form tìm kiếm nếu có
+            
+                // Lấy danh sách sản phẩm
+                $list_products = list_all_products($key, $category_id);
                 include "./products/list_products.php";
                 break;
+            
+            
 
 
 
