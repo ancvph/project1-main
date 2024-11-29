@@ -37,6 +37,9 @@
                         <h4><a class="navbar" href="index.php?act=about">ABOUT</a></h4>
                     </li>
                     <li>
+                <h4><a class="navbar" href="index.php?act=order_history">ORDER HISTORY</a></h4>
+            </li>
+                    <li>
                         <nav class="navbars ">
                             <form class="container-fluid justify-content-start">
                                 <button class="btn btn-outline-dark me-4" type="button"><a style="text-decoration:none"

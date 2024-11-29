@@ -12,6 +12,7 @@
                             <th scope="col">Số lượng</th>
                             <th scope="col">Thành tiền</th>
                         </tr>
+
                     </thead>
                     <tbody>
                         <?php
@@ -51,6 +52,19 @@
                         <label for="shipping_address">Địa chỉ giao hàng</label>
                         <textarea class="form-control" id="shipping_address" name="shipping_address" required></textarea>
                     </div>
+                    <h3>Chọn phương thức thanh toán</h3>
+<div>
+    <input type="radio" id="payment_cod" name="payment_method" value="COD" required>
+    <label for="payment_cod">Thanh toán khi nhận hàng (COD)</label>
+</div>
+<div>
+    <input type="radio" id="payment_card" name="payment_method" value="Card">
+    <label for="payment_card">Thanh toán qua thẻ ngân hàng</label>
+</div>
+<div>
+    <input type="radio" id="payment_wallet" name="payment_method" value="Wallet">
+    <label for="payment_wallet">Thanh toán qua ví điện tử</label>
+</div>
                     <input type="hidden" name="total_price" value="<?php echo $sum; ?>">
                     <button type="submit" name="submit_payment" class="btn btn-primary">Thanh Toán</button>
                 </form>

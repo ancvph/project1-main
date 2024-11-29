@@ -39,10 +39,25 @@
     }
 
     
-    function update_products($product_id,$category_id,$product_name,$description,$price,$stock_quantity,$created_at,$updated_at,$image_url){
-        $sql = "update products set category_id = '$category_id, product_name = '$product_name', description = '$description', price = '$price', stock_quantity = '$stock_quantity', created_at = '$created_at', updated_at = '$updated_at', image_url = '$image_url' ' where product_id =". $product_id;
-        pdo_execute($sql);
+    function update_products($product_id, $category_id, $product_name, $description, $price, $stock_quantity, $created_at, $updated_at, $image_url){
+        // Nếu giá trị created_at trống, thay thế bằng CURRENT_TIMESTAMP
+        if(empty($created_at)) {
+            $created_at = 'CURRENT_TIMESTAMP'; // Hoặc bạn có thể dùng 'NULL' nếu muốn không ghi giá trị
+        }
+    
+        // Nếu giá trị updated_at trống, thay thế bằng CURRENT_TIMESTAMP
+        if(empty($updated_at)) {
+            $updated_at = 'CURRENT_TIMESTAMP';
+        }
+    
+        // Sửa lại câu lệnh SQL
+        $sql = "UPDATE products
+                SET category_id = ?, product_name = ?, description = ?, price = ?, stock_quantity = ?, created_at = ?, updated_at = ?, image_url = ?
+                WHERE product_id = ?";
+        // Thực thi câu lệnh SQL
+        pdo_execute($sql, $category_id, $product_name, $description, $price, $stock_quantity, $created_at, $updated_at, $image_url, $product_id);
     }
+    
              
     
     //load sản phẩm ra trang chủ
