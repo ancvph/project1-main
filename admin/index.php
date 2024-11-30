@@ -4,7 +4,7 @@
     include "../model/pdo.php";
     include "../model/model_categories.php";
     include "../model/model_products.php";
-    
+    include "../model/model_orders.php";
     if(isset($_GET['act'])){
         $act = $_GET['act'];
         switch ($act) {
@@ -210,7 +210,13 @@
             
             
 
-
+                case 'orders':
+                    # code...
+    
+                    $list_orders = list_all_orders();
+                    include "./orders/list_orders.php";
+                    break;
+                    
 
             //không tìm thấy trang => trỏ về trang chủ admin
             default:
