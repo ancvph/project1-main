@@ -3,12 +3,18 @@
  * Mở kết nối đến CSDL sử dụng PDO
  */
 function pdo_get_connection(){
-    $dburl = "mysql:host=localhost;dbname=project_1;charset=utf8";
-    $username = 'root';
-    $password = '';
-
-    $conn = new PDO($dburl, $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    static $conn = null;
+    if ($conn === null) {
+        $dburl = "mysql:host=localhost;dbname=project_1;charset=utf8";
+        $username = 'root';
+        $password = '';
+        try {
+            $conn = new PDO($dburl, $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Lỗi kết nối cơ sở dữ liệu: " . $e->getMessage());
+        }
+    }
     return $conn;
 }
 /**
@@ -17,17 +23,14 @@ function pdo_get_connection(){
  * @param array $args mảng giá trị cung cấp cho các tham số của $sql
  * @throws PDOException lỗi thực thi câu lệnh
  */
-function pdo_execute($sql){
-    $sql_args = array_slice(func_get_args(), 1);
-    try{
+function pdo_execute($sql, ...$args){
+    try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
-        $stmt->execute($sql_args);
-    }
-    catch(PDOException $e){
-        throw $e;
-    }
-    finally{
+        $stmt->execute($args);
+    } catch (PDOException $e) {
+        throw new Exception("Lỗi thực thi câu lệnh SQL: " . $e->getMessage());
+    } finally {
         unset($conn);
     }
 }
@@ -44,7 +47,7 @@ function pdo_query($sql){
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
         $stmt->execute($sql_args);
-        $rows = $stmt->fetchAll();
+       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); // Đảm bảo luôn trả về mảng liên kết
         return $rows;
     }
     catch(PDOException $e){

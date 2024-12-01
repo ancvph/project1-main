@@ -9,10 +9,13 @@
 }
 
 .logo {
+  text-decoration: none;
   font-size: 70px;
   color: rgb(3, 3, 126);
   margin-right: 50px;
 }
+
+
 
 .navbars > ul {
   display: flex;
@@ -20,7 +23,7 @@
 
 .navbars > ul > li {
   list-style: none;
-  margin-right: 70px;
+  margin-right: 50px;
   margin-left: 20px;
   margin-top: 20px;
 }

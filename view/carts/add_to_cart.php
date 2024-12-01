@@ -1,5 +1,10 @@
 <div class="container">
     <h2>Giỏ hàng</h2>
+
+    <!-- Kiểm tra nếu giỏ hàng có sản phẩm không -->
+    <?php if (empty($_SESSION["carts"])): ?>
+    <p>Giỏ hàng của bạn hiện đang trống. Hãy thêm sản phẩm vào giỏ hàng.</p>
+    <?php else: ?>
     <table class="table table-striped" border="2">
         <thead>
             <tr>
@@ -8,7 +13,6 @@
                 <th scope="col">Sản phẩm</th>
                 <th scope="col">Giá</th>
                 <th scope="col">Số lượng</th>
-
                 <th scope="col">Thành tiền</th>
                 <th scope="col">Thao tác</th>
             </tr>
@@ -24,6 +28,8 @@
                     $img = $path_url.$cart[3];
                     $total = $cart[2] * $cart[4];
                     $sum += $total;
+
+                    // Xử lý nút xóa sản phẩm bằng form POST
                     $delete_product = '<a href="/index.php?act=delete_cart&cart_items_id='.$i.'"><button type="button" class="btn btn-warning">Xoá</button></a>';
                     echo' <tr>
                             
@@ -55,4 +61,5 @@
     <div class="d-flex justify-content-end">
         <a href="index.php?act=home" class="btn btn-outline-success">Chọn thêm mặt hàng</a>
     </div>
+    <?php endif; ?>
 </div>
