@@ -105,7 +105,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             header('Location: ./index.php?act=cart');
             break;
         
-        // Thanh toán
+     
         // Thanh toán
 case 'checkout':
     if (isset($_POST['submit_payment'])) {

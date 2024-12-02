@@ -20,7 +20,7 @@
         <a class="flex-sm-fill text-sm-center nav-link" href="./index.php">Trang chủ</a>
         <a class="flex-sm-fill text-sm-center nav-link" href="./index.php?act=categories">Danh mục </a>
         <a class="flex-sm-fill text-sm-center nav-link" href="./index.php?act=products">Sản phẩm</a>
-        <a class="flex-sm-fill text-sm-center nav-link" href="#">Khách hàng</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="index.php?act=manage_users">Khách hàng</a>
         <a class="flex-sm-fill text-sm-center nav-link" href="#">Bình luận</a>
         <a class="flex-sm-fill text-sm-center nav-link" href="#">Thống kê</a>
         <a class="flex-sm-fill text-sm-center nav-link" href="./index.php?act=orders">Đơn hàng</a>
