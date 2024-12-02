@@ -21,7 +21,7 @@
                     <button type="button" class="btn btn-outline-dark">39cm</button>
                 </div> -->
                 <div class="price">
-                    <h3 class="text-danger mx-3"> $<?=$price?></h3>
+                    <h3 class="text-danger mx-3"><?=number_format($price,0,',','.') ?>VNĐ</h3>
                 </div>
                 <!-- <div class="original_price">
                     <h4><s>45.000.000</s></h4>
