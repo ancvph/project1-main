@@ -35,10 +35,11 @@
                     </li>
                     <li>
                         <h4><a class="navbar" href="index.php?act=about">ABOUT</a></h4>
-                        
+
                     </li>
+
                     <li>
-                        
+                        <h4><a class="navbar" href="index.php?act=order_history">ORDER HISTORY</a></h4>
                     </li>
                     <li>
                         <nav class="navbars ">
@@ -46,11 +47,12 @@
                                 <button class="btn" type="button"><a style="text-decoration:none"
                                         href="logout.php"><b>Đăng xuất</b></a></button>
 
-                                <a class="navbar" href="index.php?act=cart"><img src="view/imgs/shopping-cart.png" alt="" style="width:50px"></a>
+                                <a class="navbar" href="index.php?act=cart"><img src="view/imgs/shopping-cart.png"
+                                        alt="" style="width:50px"></a>
                             </form>
                         </nav>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>

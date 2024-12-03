@@ -54,10 +54,8 @@
                 echo '<tr>
                         <th scope="row">'.$order_id.'</th>
                         <td>'.$customer_name.'</td>
-                        <td>'.$total_price.'</td>
+                        <td>'.number_format($total_price,0,',','.').' VNĐ</td>
                         <td>'.$status.'</td>
-                        
-                      
                         <td>'.$created_at.'</td>
                         <td>'.$shipping_address.'</td>
                         <td>'.$payment_method.'</td>

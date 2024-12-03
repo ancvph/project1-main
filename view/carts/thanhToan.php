@@ -1,3 +1,10 @@
+<?php
+// Kiểm tra và lấy tổng giá trị từ SESSION hoặc gán mặc định là 0
+    $total_price = isset($_SESSION["selected_total_price"]) ? $_SESSION["selected_total_price"] : 0;
+?>
+
+
+
 <div class="container">
     <h2>Thanh Toán</h2>
 
@@ -14,24 +21,31 @@
             </tr>
         </thead>
         <tbody>
-            <?php
-                        $sum = 0;
-                        foreach ($_SESSION["carts"] as $cart) {
-                            $img = $path_url . $cart[3];
-                            $total = $cart[2] * $cart[4];
-                            $sum += $total;
+            <?php   
+                if (isset($_SESSION["selected_carts"]) && !empty($_SESSION["selected_carts"])) {
+                $selected_carts = $_SESSION["selected_carts"];
+                $total_price = $_SESSION["selected_total_price"];
+
+                foreach ($selected_carts as $cart) {
+                    $img = $path_url . $cart[3];
+                    $total = $cart[2] * $cart[4];
+
+                       
+                       
+                            // $sum += $total;
                             echo '<tr>
                                     <td><img src="' . $img . '" alt="Product Image" style="width: 50px;"></td>
                                     <td>' . $cart[1] . '</td>
-                                    <td>' . $cart[2] . '</td>
+                                    <td>' . number_format($cart[2],0,',','.') .' VNĐ</td>
                                     <td>' . $cart[4] . '</td>
-                                    <td>' . $total . '</td>
+                                    <td>' . number_format($total,0,',','.') .' VNĐ</td>
                                   </tr>';
                         }
+                    }
                         ?>
             <tr>
                 <td colspan="4">Tổng đơn hàng</td>
-                <td><?php echo $sum; ?></td>
+                <td><?php echo number_format($total_price,0,',','.'); ?> VNĐ</td>
             </tr>
         </tbody>
     </table>

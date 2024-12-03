@@ -82,6 +82,7 @@
                                 <input type="hidden" name="product_name" value="'.$product_name.'">
                                 <input type="hidden" name="image_url" value="'.$image_url.'">
                                 <input type="hidden" name="price" value="'.$price.'">
+                        
 
                                 
                                 <input type="submit" name="addtocart" value="Add cart" class="btn btn-outline-dark">

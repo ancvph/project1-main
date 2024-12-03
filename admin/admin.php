@@ -21,12 +21,14 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != '1') {
 </head>
 
 <body>
-    <h1> <?php 
+    <div class="container">
+        <h1> <?php 
         echo $hi_admin;
     ?></h1>
-    <a href="../logout.php" style="text-decoration: none">
-        <h3>Đăng xuất</h3>
-    </a>
+        <a href="../logout.php" style="text-decoration: none; color:black">
+            <h3>Đăng xuất</h3>
+        </a>
+    </div>
 </body>
 
 </html>
