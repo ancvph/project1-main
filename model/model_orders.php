@@ -32,4 +32,15 @@
     }
 
 
+
+    function load_one_orders($order_id){
+        $sql = "select * from orders where order_id=".$order_id;
+        $load_orders = pdo_query_one($sql);
+        return $load_orders;
+    }
+
+    function update_orders_status($order_id,$status){
+        $sql = "update orders set status = '$status' where order_id =". $order_id;
+        pdo_execute($sql);
+    }
 ?>

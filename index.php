@@ -126,7 +126,7 @@
 
         // Kiểm tra thông tin thanh toán
         if (!empty($customer_name) && !empty($customer_phone) && !empty($shipping_address) && !empty($payment_method)) {
-            $status = 'Pending';
+            $status = 'Đã đặt hàng';
             $user_id = $_SESSION['user_id'];
 
             // Lưu thông tin đơn hàng vào bảng `orders`

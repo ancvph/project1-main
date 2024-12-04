@@ -212,7 +212,34 @@
                 include "./orders/list_orders.php";
                 break;
                 
+            //đơn hàng chi tiết
+            case 'order_detail':
+                 if (isset($_GET["order_id"]) && $_GET["order_id"] > 0) {
+                    $order_id = $_GET["order_id"];
+                    $order_detail = load_one_orders($order_id);
+                    include "./orders/order_detail_admin.php";
+                }
+                
+                break;
 
+            
+            //cập nhật trạng thái đơn hàng
+
+            case 'update_orders_status':
+           
+                if(isset($_POST["update_status"]) && $_POST["update_status"]){
+                    $order_id = $_POST["order_id"];
+
+                    $status = $_POST["status"];
+                    
+
+                    update_orders_status($order_id,$status);
+                    // $notifications = "Thêm thành công";
+                }
+                
+                $list_orders = list_all_orders();
+                include "./orders/list_orders.php";
+                break;
 
             //không tìm thấy trang => trỏ về trang chủ admin
             default:

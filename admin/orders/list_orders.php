@@ -27,7 +27,7 @@
                 <th scope="col">Tên khách hàng</th>
                 <th scope="col">Giá đơn hàng</th>
                 <th scope="col">Trạng thái đơn hàng</th>
-                <th scope="col">Ngày tạo</th>
+
                 <th scope="col">Địa chỉ</th>
                 <th scope="col">Hình thức thanh toán</th>
 
@@ -52,14 +52,14 @@
                 // }
                 
                 echo '<tr>
-                        <th scope="row">'.$order_id.'</th>
-                        <td>'.$customer_name.'</td>
-                        <td>'.number_format($total_price,0,',','.').' VNĐ</td>
-                        <td>'.$status.'</td>
-                        <td>'.$created_at.'</td>
-                        <td>'.$shipping_address.'</td>
-                        <td>'.$payment_method.'</td>
-
+                            <th scope="row">'.$order_id.'</th>
+                            <td>'.$customer_name.'</td>
+                            <td>'.number_format($total_price,0,',','.').' VNĐ</td>
+                            <td>'.$status.'</td>
+                            
+                            <td>'.$shipping_address.'</td>
+                            <td>'.$payment_method.'</td>
+                            <td><a href="index.php?act=order_detail&order_id='.$order_id.'">Chi tiết</a></td>
                         
                         </tr>';
                         }
