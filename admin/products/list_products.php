@@ -67,7 +67,7 @@
 
                         <td>
                             <a href="'.$update.'"><button type="button" class="btn btn-danger mb-2">Sửa</button></a>
-                            <a href="'.$delete.'"><button type="button" class="btn btn-warning">Xoá</button></a>
+                            <a href="'.$delete.'"><button type="button" class="btn btn-warning" onclick="return confirm(\'Bạn có chắc muốn xóa?\')">Xoá</button></a>
                         </td>
                         </tr>';
                         }

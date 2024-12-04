@@ -5,6 +5,7 @@
     include "../model/model_categories.php";
     include "../model/model_products.php";
     include "../model/model_orders.php";
+    include "../model/model_users.php";
     
     if(isset($_GET['act'])){
         $act = $_GET['act'];
@@ -147,8 +148,9 @@
 
                 }
                 
-                
-                $list_products = list_all_products();
+                $key = isset($_GET['key']) ? $_GET['key'] : ""; // Gán chuỗi rỗng nếu không có giá trị.
+                $category_id = isset($_GET['category_id']) ? (int)$_GET['category_id'] : 0; // Gán 0 nếu không có giá trị.
+                $list_products = list_all_products($key,$category_id);
                 
                 include "./products/list_products.php";
                 break;
@@ -197,7 +199,7 @@
             
                 }
                 
-                $list_products = list_all_products();
+                $list_products = list_all_products($key,$category_id);
                 include "./products/list_products.php";
                 break;
 
@@ -240,6 +242,60 @@
                 $list_orders = list_all_orders();
                 include "./orders/list_orders.php";
                 break;
+
+
+
+
+
+
+            case 'manage_users':
+                        $users = get_all_users();
+                        include __DIR__ . '/users/users_list.php';
+
+                        break;
+                    
+                        case 'add_user':
+                            if (isset($_POST['submit'])) {
+                                $username = $_POST['username'];
+                                $password = $_POST['password']; 
+                                $email = $_POST['email'];
+                                $phone = $_POST['phone'];
+                                $address = $_POST['address'];
+                                $role = $_POST['role'];
+                        
+                                add_user($username, $password, $email, $phone, $address, $role);
+                                header('Location: index.php?act=manage_users');
+                                exit();
+                            }
+                            include __DIR__ . '/users/user_form.php';
+
+                            break;
+                        
+                    
+                    case 'edit_user':
+                        if (isset($_GET['id']) && $_GET['id'] > 0) {
+                            $user_id = $_GET['id']; // Thay đổi biến từ $id thành $user_id
+                            $user = get_user_by_id($user_id); // Sử dụng hàm lấy thông tin người dùng dựa trên user_id
+                        }
+                    
+                        if (isset($_POST['submit'])) {
+                            $username = $_POST['username'];
+                            $email = $_POST['email'];
+                            $role = $_POST['role'];
+                            update_user($user_id, $username, $email, $role); // Gọi hàm với $user_id
+                            header('Location: index.php?act=manage_users');
+                        }
+                        include __DIR__ . '/users/user_formUpdate.php';
+                        break;
+                    
+                    case 'delete_user':
+                        if (isset($_GET['id']) && $_GET['id'] > 0) {
+                            $id = $_GET['id'];
+                            delete_user($id);
+                            header('Location: index.php?act=manage_users');
+                        }
+                        break;
+                    
 
             //không tìm thấy trang => trỏ về trang chủ admin
             default:
